@@ -2,6 +2,6 @@
   <h1>Need an excuse?</h1>
 
   <h2>Press the button to get an excuse</h2>
-  <button (click)="onClick()">Get an excuse</button>
-  <div>{{excuse}}</div>
+  <button class="button" (click)="onClick()">Get an excuse</button>
+  <div *ngIf="excuse" class="excuse">{{excuse}}</div>
 </div>
