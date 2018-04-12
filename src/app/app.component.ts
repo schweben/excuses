@@ -5,7 +5,7 @@ import { ExcuseService } from './service/excuse.service';
 @Component({
   selector: 'ex-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
 
