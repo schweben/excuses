@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,10 +11,14 @@ import { ExcuseService } from './service/excuse.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
   ],
   providers: [
     ExcuseService,
+    HttpClientModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ],
 })
 export class AppModule { }
