@@ -1,10 +1,17 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Need an excuse?</mat-card-title>
-    <mat-card-subtitle>Press the button to get an excuse</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <button mat-raised-button color="primary" (click)="onClick()">Get an excuse</button>
-    <div *ngIf="excuse" class="excuse">{{excuse}}</div>
-  </mat-card-content>
+<mat-toolbar color="primary">
+  <span>Need an excuse?</span>
+</mat-toolbar>
+<mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>Press the button to get an excuse</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="button">
+        <button mat-raised-button color="primary" (click)="onClick()">Get an excuse</button>
+      </div>
+      <mat-divider [inset]="true" *ngIf="excuse"></mat-divider>
+      <div *ngIf="excuse" class="excuse">
+        {{excuse}}
+      </div>
+    </mat-card-content>
 </mat-card>

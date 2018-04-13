@@ -1,12 +1,16 @@
 import { async, TestBed } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { MaterialModule } from './material.module';
 import { ExcuseService } from './service/excuse.service';
 import { MockExcuseService } from './testing/excuse.service.mock';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MaterialModule,
+      ],
       declarations: [
         AppComponent,
       ],
@@ -39,13 +43,13 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Need an excuse?');
+    expect(compiled.querySelector('mat-toolbar').textContent).toContain('Need an excuse?');
   }));
 
   it('Should render instructions in a h2 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Press the button to get an excuse');
+    expect(compiled.querySelector('mat-card-title').textContent).toContain('Press the button to get an excuse');
   }));
 });
