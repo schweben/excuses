@@ -1,9 +1,10 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ExcuseService } from './service/excuse.service';
+import { FakeBackendInterceptor } from './service/fake-backend.interceptor';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,12 @@ import { ExcuseService } from './service/excuse.service';
   ],
   providers: [
     ExcuseService,
-    HttpClientModule,
+    // HttpClientModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: FakeBackendInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [
     AppComponent,
