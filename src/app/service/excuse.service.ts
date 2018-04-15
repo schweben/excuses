@@ -13,11 +13,28 @@ export class ExcuseService {
     constructor(private http: HttpClient) {
     }
 
-    public getExcuse(): Observable<string> {
+    public getCategories(): Observable<string[]> {
         return this.http.get<string[]>(this.URL)
-            .map((excuses) => {
-                const index = Math.floor(Math.random() * excuses.length);
-                return excuses[index];
+            .map((result) => {
+                const categories: string[] = [];
+                result['categories'].forEach((category) => {
+                    categories.push(category.name);
+                });
+                return categories;
+            });
+    }
+
+    public getExcuse(category: string): Observable<string> {
+        return this.http.get<string[]>(this.URL)
+            .map((result) => {
+                let excuse = '';
+                result['categories'].forEach((cat) => {
+                    if (cat.name === category) {
+                        const index = Math.floor(Math.random() * cat.excuses.length);
+                        excuse = cat.excuses[index];
+                    }
+                });
+                return excuse;
             });
     }
 }

@@ -9,13 +9,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        const excuses = [
-            'It works on my machine!',
-            'It\'s not my fault',
-            'I\'ve never seen it do that before',
-            'Have you tried turning it off and on again?',
-            'I can\'t reproduce that',
-        ];
+        const excuses = {
+            'Test category 1': [
+                'Excuse 1',
+                'Excuse 2',
+            ],
+            'Test category 2': [
+                'Excuse 3',
+                'Excuse 4',
+            ],
+        };
 
         if (request.url.endsWith('/excuses.json') && request.method === 'GET') {
             return Observable.of(new HttpResponse({ status: 200, body: excuses }));

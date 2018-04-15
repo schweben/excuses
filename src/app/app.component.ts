@@ -15,7 +15,7 @@ export class AppComponent {
   }
 
   public onClick() {
-    this.excuseService.getExcuse().subscribe((excuse) => {
+    this.excuseService.getExcuse('helloo').subscribe((excuse) => {
       this.excuse = excuse;
     });
   }
