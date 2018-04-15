@@ -1,4 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
@@ -9,6 +10,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        FormsModule,
         MaterialModule,
       ],
       declarations: [
@@ -39,17 +41,17 @@ describe('AppComponent', () => {
     expect(app.excuse).toBeUndefined();
   }));
 
-  it('Should render title in a h1 tag', async(() => {
+  it('Should render title in a mat-toolbar tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('mat-toolbar').textContent).toContain('Need an excuse?');
   }));
 
-  it('Should render instructions in a h2 tag', async(() => {
+  it('Should render instructions in a mat-card-title tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('mat-card-title').textContent).toContain('Press the button to get an excuse');
+    expect(compiled.querySelector('mat-card-title').textContent).toContain('Choose a category and then press the button to get an excuse');
   }));
 });

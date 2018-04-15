@@ -10,13 +10,21 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         const excuses = {
-            'Test category 1': [
-                'Excuse 1',
-                'Excuse 2',
-            ],
-            'Test category 2': [
-                'Excuse 3',
-                'Excuse 4',
+            categories: [
+                {
+                    name: 'Test category 1',
+                    excuses: [
+                        'Excuse 1',
+                        'Excuse 2',
+                    ],
+                },
+                {
+                    name: 'Test category 2',
+                    excuses: [
+                        'Excuse 3',
+                        'Excuse 4',
+                    ],
+                },
             ],
         };
 

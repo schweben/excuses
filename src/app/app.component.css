@@ -4,10 +4,19 @@
 }
 
 .button {
-    margin-bottom: 25px;
+    margin: 20px 0 25px 0;
 }
 
 .excuse {
     margin-top: 25px;
     font-weight: bold;
+}
+
+.categories {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.category {
+    margin: 10px;
 }
