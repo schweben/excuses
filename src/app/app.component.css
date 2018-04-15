@@ -13,6 +13,7 @@
 }
 
 .categories {
+    text-align: left;
     display: inline-flex;
     flex-direction: column;
 }
