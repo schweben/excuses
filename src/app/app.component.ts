@@ -24,7 +24,12 @@ export class AppComponent implements OnInit {
 
   public onClick() {
     this.excuseService.getExcuse(this.category).subscribe((excuse) => {
-      this.excuse = excuse;
+      // If the service returns the same excuse as last time then get another one
+      if (excuse === this.excuse) {
+        this.onClick();
+      } else {
+        this.excuse = excuse;
+      }
     });
   }
 }
