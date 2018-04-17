@@ -1,0 +1,53 @@
+{
+    "categories": [
+        {
+            "name": "IT",
+            "excuses": [
+                "It works on my machine!",
+                "It's not my fault",
+                "I've never seen it do that before",
+                "Have you tried turning it off and on again?",
+                "I can't reproduce that",
+                "I didn't work on that module",
+                "A contractor did that bit",
+                "Sorry, I haven't had any coffee yet",
+                "That part was off-shored",
+                "That fix hasn't been committed yet",
+                "Have you cleared your cache?",
+                "It's waiting for QA"
+            ]
+        },
+        {
+            "name": "Homework",
+            "excuses": [
+                "My dog ate it",
+                "It went through the washing machine",
+                "I left it in my locker",
+                "We used it for toilet paper",
+                "My dad threw it in the bin",
+                "My goldfish ate it",
+                "My mum ate it because she is on a diet and was very hungry",
+                "The house was burgled and they stole it",
+                "My homework was deemed so superb that it was sent to the British Library",
+                "I left it in my dad's car",
+                "I thought that it was a secret message so destroyed it after reading it",
+                "My little sister turned it into origami",
+                "It was struck by lightning and burst into flames",
+                "My dad used it to light the fire",
+                "MI5 confiscated it because they said it contained a top-secret algebra equation"
+            ]
+        },
+        {
+            "name": "Lateness",
+            "excuses": [
+                "My mum overslept",
+                "My mum spent too much time faffing with her hair",
+                "I was too busy playing Lego",
+                "My clothes were in the washing machine",
+                "The car ran out of petrol",
+                "I got lost on the way",
+                "My friend took too long in the shop"
+            ]
+        }
+    ]
+}
