@@ -14,7 +14,13 @@
                 "That part was off-shored",
                 "That fix hasn't been committed yet",
                 "Have you cleared your cache?",
-                "It's waiting for QA"
+                "It's waiting for QA",
+                "That's weird!",
+                "It worked before!",
+                "There are only a few things to fix",
+                "How has this happened?",
+                "It has to be a hardware fault",
+                "The Internet is slow today"
             ]
         },
         {
