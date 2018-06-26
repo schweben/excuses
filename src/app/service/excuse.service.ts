@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ExcuseService {
 
-    private URL = 'http://www.schweben.org/excuses/excuses.json';
+    private URL = 'https://www.schweben.org/excuses/excuses.json';
 
     constructor(private http: HttpClient) {
     }
