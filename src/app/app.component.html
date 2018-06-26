@@ -12,8 +12,12 @@
       <div class="button">
         <button mat-raised-button color="primary" (click)="onClick()" [disabled]="!category">Get an excuse</button>
       </div>
-      <mat-divider [inset]="true" *ngIf="excuse"></mat-divider>
-      <div *ngIf="excuse" class="excuse">
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="card" *ngIf="excuse">
+    <mat-card-content>
+      <div class="excuse">
         {{excuse}}
       </div>
     </mat-card-content>
