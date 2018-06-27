@@ -44,7 +44,7 @@ describe('ExcuseService', () => {
             done();
         });
 
-        const excuseRequest = httpMock.expectOne('http://www.schweben.org/excuses/excuses.json');
+        const excuseRequest = httpMock.expectOne('https://www.schweben.org/excuses/excuses.json');
         excuseRequest.flush(dummyResponse);
         httpMock.verify();
     });
@@ -55,7 +55,7 @@ describe('ExcuseService', () => {
             done();
         });
 
-        const excuseRequest = httpMock.expectOne('http://www.schweben.org/excuses/excuses.json');
+        const excuseRequest = httpMock.expectOne('https://www.schweben.org/excuses/excuses.json');
         excuseRequest.flush(dummyResponse);
         httpMock.verify();
     });
