@@ -2,13 +2,13 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 
+import { of } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { ExcuseService } from './service/excuse.service';
 
-import 'rxjs/add/observable/of';
 
 describe('AppComponent', () => {
 
@@ -35,7 +35,7 @@ describe('AppComponent', () => {
     }));
 
     beforeEach(() => {
-        spyOn(excuseService, 'getCategories').and.returnValue(Observable.of(['Category 1', 'Category 2']));
+        spyOn(excuseService, 'getCategories').and.returnValue(of(['Category 1', 'Category 2']));
 
         fixture = TestBed.createComponent(AppComponent);
         app = fixture.debugElement.componentInstance;
@@ -52,7 +52,7 @@ describe('AppComponent', () => {
     }));
 
     it('Should get an excuse when clicked', async(() => {
-        spyOn(excuseService, 'getExcuse').and.returnValue(Observable.of('Have you tried turning it off and on again?'));
+        spyOn(excuseService, 'getExcuse').and.returnValue(of('Have you tried turning it off and on again?'));
         app.onClick();
         expect(app.excuse).toEqual('Have you tried turning it off and on again?');
         expect(excuseService.getExcuse).toHaveBeenCalledTimes(1);
