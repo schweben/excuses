@@ -19,6 +19,14 @@ describe('ExcuseService', () => {
                     ],
                 },
             ],
+            byoe: {
+                what: [
+                    'goldfish',
+                ],
+                where: [
+                    'garage',
+                ],
+            },
         };
 
     let excuseService: ExcuseService;
@@ -38,7 +46,7 @@ describe('ExcuseService', () => {
         httpMock = TestBed.get(HttpTestingController);
     });
 
-    it ('Should return two categories', (done) => {
+    it ('should return two categories', (done) => {
         excuseService.getCategories().subscribe((excuse) => {
             expect(excuse).toEqual(['Test category 1', 'Test category 2']);
             done();
@@ -49,9 +57,20 @@ describe('ExcuseService', () => {
         httpMock.verify();
     });
 
-    it('Should return a single excuse', (done) => {
+    it('should return a single categorised excuse', (done) => {
         excuseService.getCategorisedExcuse('Test category 1').subscribe((excuse) => {
             expect(excuse).toBe('Excuse 1');
+            done();
+        });
+
+        const excuseRequest = httpMock.expectOne('https://www.schweben.org/excuses/excuses.json');
+        excuseRequest.flush(dummyResponse);
+        httpMock.verify();
+    });
+
+    it('should return a \'build your own\' excuse', (done) => {
+        excuseService.getBuiltExcuse().subscribe((excuse) => {
+            expect(excuse).toBe('I have to take the goldfish to the garage');
             done();
         });
 

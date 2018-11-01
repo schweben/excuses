@@ -16,13 +16,13 @@ describe('CategorisedExcuseComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
+            declarations: [
+                CategorisedExcuseComponent,
+            ],
             imports: [
                 FormsModule,
                 HttpClientTestingModule,
                 MaterialModule,
-            ],
-            declarations: [
-                CategorisedExcuseComponent,
             ],
             providers: [
                 ExcuseService,
@@ -40,23 +40,26 @@ describe('CategorisedExcuseComponent', () => {
         fixture.detectChanges();
     });
 
+    it('should create the component', () => {
+        expect(component).toBeTruthy();
+    });
+
     it('should retrieve the categories from the service on initialisation', async(() => {
         expect(component.categories).toEqual(['Category 1', 'Category 2']);
         expect(excuseService.getCategories).toHaveBeenCalled();
     }));
 
-    it('Should get an excuse when clicked', async(() => {
+    it('should get an excuse when clicked', async(() => {
         spyOn(excuseService, 'getCategorisedExcuse').and.returnValue(of('Have you tried turning it off and on again?'));
+        spyOn(excuseService, 'setExcuse');
+
         component.onClick();
-        expect(component.excuse).toEqual('Have you tried turning it off and on again?');
+
         expect(excuseService.getCategorisedExcuse).toHaveBeenCalledTimes(1);
+        expect(excuseService.setExcuse).toHaveBeenCalledWith('Have you tried turning it off and on again?');
     }));
 
-    it('Should not have an excuse initially', async(() => {
-        expect(component.excuse).toBeUndefined();
-    }));
-
-    it('Should render instructions in a mat-card-title tag', async(() => {
+    it('should render instructions in a mat-card-title tag', async(() => {
         const compiled = fixture.debugElement.nativeElement;
         expect(compiled.querySelector('mat-card-title').textContent).toContain('Choose a category and then press the button to get an excuse');
     }));

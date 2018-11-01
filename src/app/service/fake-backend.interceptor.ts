@@ -26,6 +26,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     ],
                 },
             ],
+            byoe: {
+                what: [
+                    'car',
+                    'dog',
+                ],
+                where: [
+                    'vet',
+                    'garage',
+                ],
+            },
         };
 
         if (request.url.endsWith('/excuses.json') && request.method === 'GET') {

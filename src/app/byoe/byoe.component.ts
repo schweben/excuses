@@ -3,28 +3,19 @@ import { Component, OnInit } from '@angular/core';
 import { ExcuseService } from '../service/excuse.service';
 
 @Component({
-    selector: 'ex-categorised-excuse',
-    templateUrl: './categorised-excuse.component.html',
-    styleUrls: ['./categorised-excuse.component.css'],
+    selector: 'ex-byoe',
+    templateUrl: './byoe.component.html',
+    styleUrls: ['./byoe.component.css'],
 })
-export class CategorisedExcuseComponent implements OnInit {
-
-    public categories: string[];
-    public category: string;
+export class ByoeComponent {
 
     private excuse: string;
 
     constructor(private excuseService: ExcuseService) {
     }
 
-    public ngOnInit(): void {
-        this.excuseService.getCategories().subscribe((categories) => {
-            this.categories = categories;
-        });
-    }
-
     public onClick() {
-        this.excuseService.getCategorisedExcuse(this.category).subscribe((excuse) => {
+        this.excuseService.getBuiltExcuse().subscribe((excuse) => {
             // If the service returns the same excuse as last time then get another one
             if (excuse === this.excuse) {
                 this.onClick();

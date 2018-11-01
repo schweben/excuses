@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
+import { of } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -38,6 +39,17 @@ export class ExcuseService {
                     }
                 });
                 return excuse;
+            });
+    }
+
+    public getBuiltExcuse(): Observable<string> {
+        return this.http.get<string[]>(this.URL)
+            .map((result) => {
+                const byoe = result['byoe'];
+                const what = byoe['what'][Math.floor(Math.random() * byoe['what'].length)];
+                const where = byoe['where'][Math.floor(Math.random() * byoe['where'].length)];
+
+                return `I have to take the ${what} to the ${where}`;
             });
     }
 

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { ExcuseService } from './service/excuse.service';
 
+import { MockByoeComponent } from './mocks/mock.byoe.component';
 import { MockCategorisedExcuseComponent } from './mocks/mock.categorised-excuse.component';
 import { MockExcuseComponent } from './mocks/mock.excuse.component';
 
@@ -21,6 +22,7 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 AppComponent,
+                MockByoeComponent,
                 MockCategorisedExcuseComponent,
                 MockExcuseComponent,
             ],
