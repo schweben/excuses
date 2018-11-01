@@ -2,7 +2,7 @@ import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/observable/of';
+import { of } from 'rxjs';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -29,7 +29,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         };
 
         if (request.url.endsWith('/excuses.json') && request.method === 'GET') {
-            return Observable.of(new HttpResponse({ status: 200, body: excuses }));
+            return of(new HttpResponse({ status: 200, body: excuses }));
         } else {
             return Observable.throw('Not found');
         }

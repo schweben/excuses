@@ -1,0 +1,13 @@
+.button {
+    margin: 20px 0 25px 0;
+}
+
+.categories {
+    text-align: left;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.category {
+    margin: 10px;
+}

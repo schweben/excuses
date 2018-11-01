@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 import 'rxjs/add/operator/map';
 
@@ -9,6 +10,8 @@ import 'rxjs/add/operator/map';
 export class ExcuseService {
 
     private URL = 'https://www.schweben.org/excuses/excuses.json';
+
+    private excuse = new Subject<string>();
 
     constructor(private http: HttpClient) {
     }
@@ -24,7 +27,7 @@ export class ExcuseService {
             });
     }
 
-    public getExcuse(category: string): Observable<string> {
+    public getCategorisedExcuse(category: string): Observable<string> {
         return this.http.get<string[]>(this.URL)
             .map((result) => {
                 let excuse = '';
@@ -36,5 +39,13 @@ export class ExcuseService {
                 });
                 return excuse;
             });
+    }
+
+    public setExcuse(excuse: string): void {
+        this.excuse.next(excuse);
+    }
+
+    public getExcuse(): Observable<string> {
+        return this.excuse.asObservable();
     }
 }

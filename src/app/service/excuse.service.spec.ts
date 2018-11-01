@@ -50,7 +50,7 @@ describe('ExcuseService', () => {
     });
 
     it('Should return a single excuse', (done) => {
-        excuseService.getExcuse('Test category 1').subscribe((excuse) => {
+        excuseService.getCategorisedExcuse('Test category 1').subscribe((excuse) => {
             expect(excuse).toBe('Excuse 1');
             done();
         });

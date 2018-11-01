@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CategorisedExcuseComponent } from './categories/categorised-excuse.component';
+import { ExcuseComponent } from './excuse/excuse.component';
 import { MaterialModule } from './material.module';
 import { ExcuseService } from './service/excuse.service';
 
@@ -14,6 +16,8 @@ import { FakeBackendInterceptor } from './service/fake-backend.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
+    ExcuseComponent,
+    CategorisedExcuseComponent,
   ],
   imports: [
     BrowserModule,

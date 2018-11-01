@@ -1,0 +1,13 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>Choose a category and then press the button to get an excuse</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-radio-group [(ngModel)]="category" [required]="true" class="categories">
+            <mat-radio-button *ngFor="let category of categories" [value]="category" class="category">{{category}}</mat-radio-button>
+        </mat-radio-group>
+        <div class="button">
+            <button mat-raised-button color="primary" (click)="onClick()" [disabled]="!category">Get an excuse</button>
+        </div>
+    </mat-card-content>
+</mat-card>

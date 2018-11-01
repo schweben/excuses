@@ -4,3 +4,8 @@
 body {
     margin: 0;
 }
+
+.card {
+    margin: 10px;
+    text-align: center;
+}
