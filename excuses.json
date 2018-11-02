@@ -58,17 +58,16 @@
     ],
     "byoe": {
         "what": [
-            "cat",
-            "car",
-            "dog",
-            "wife",
-            "goldfish"
+            "Cat",
+            "Car",
+            "Dog",
+            "Wife",
+            "Goldfish"
         ],
         "where": [
-            "doctor",
-            "vet",
-            "garage",
-            "school"
+            "Doctor",
+            "Vet",
+            "Garage"
         ]
     }
 }

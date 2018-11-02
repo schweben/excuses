@@ -21,10 +21,10 @@ describe('ExcuseService', () => {
             ],
             byoe: {
                 what: [
-                    'goldfish',
+                    'Goldfish',
                 ],
                 where: [
-                    'garage',
+                    'Garage',
                 ],
             },
         };
@@ -70,7 +70,7 @@ describe('ExcuseService', () => {
 
     it('should return the \'build your own excuse\' \'what\' options', (done) => {
         excuseService.getByoeWhatOptions().subscribe((options) => {
-            expect(options).toEqual(['goldfish']);
+            expect(options).toEqual(['Goldfish']);
             done();
         });
 
@@ -81,7 +81,7 @@ describe('ExcuseService', () => {
 
     it('should return the \'build your own excuse\' \'where\' options', (done) => {
         excuseService.getByoeWhereOptions().subscribe((options) => {
-            expect(options).toEqual(['garage']);
+            expect(options).toEqual(['Garage']);
             done();
         });
 
@@ -91,8 +91,8 @@ describe('ExcuseService', () => {
     });
 
     it('should return a \'build your own\' excuse', (done) => {
-        excuseService.getByoeExcuse('goldfish', 'garage').subscribe((excuse) => {
-            expect(excuse).toBe('I have to take the goldfish to the garage');
+        excuseService.getByoeExcuse('Goldfish', 'Garage').subscribe((excuse) => {
+            expect(excuse).toBe('I have to take my goldfish to the garage');
             done();
         });
     });

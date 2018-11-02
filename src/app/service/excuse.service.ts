@@ -57,7 +57,7 @@ export class ExcuseService {
     }
 
     public getByoeExcuse(what: string, where: string): Observable<string> {
-        return of(`I have to take the ${what} to the ${where}`);
+        return of(`I have to take my ${what.toLowerCase()} to the ${where.toLowerCase()}`);
     }
 
     public setExcuse(excuse: string): void {
