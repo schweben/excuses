@@ -2,7 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 
-import { of } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 
 import { MaterialModule } from '../material.module';
 import { ExcuseService } from '../service/excuse.service';
@@ -44,4 +44,13 @@ describe('ExcuseComponent', () => {
         expect(component).toBeTruthy();
     }));
 
+    it('should update the excuse when set', async(() => {
+        const excuse = 'Hello, World!';
+
+        const testSubscription: Subscription = excuseService.getExcuse().subscribe((result) => {
+            expect(result).toEqual(excuse);
+        });
+
+        excuseService.setExcuse(excuse);
+    }));
 });

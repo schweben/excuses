@@ -42,15 +42,22 @@ export class ExcuseService {
             });
     }
 
-    public getBuiltExcuse(): Observable<string> {
+    public getByoeWhatOptions(): Observable<string[]> {
         return this.http.get<string[]>(this.URL)
             .map((result) => {
-                const byoe = result['byoe'];
-                const what = byoe['what'][Math.floor(Math.random() * byoe['what'].length)];
-                const where = byoe['where'][Math.floor(Math.random() * byoe['where'].length)];
-
-                return `I have to take the ${what} to the ${where}`;
+                return result['byoe']['what'];
             });
+    }
+
+    public getByoeWhereOptions(): Observable<string[]> {
+        return this.http.get<string[]>(this.URL)
+            .map((result) => {
+                return result['byoe']['where'];
+            });
+    }
+
+    public getByoeExcuse(what: string, where: string): Observable<string> {
+        return of(`I have to take the ${what} to the ${where}`);
     }
 
     public setExcuse(excuse: string): void {

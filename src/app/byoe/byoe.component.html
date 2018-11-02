@@ -3,8 +3,18 @@
         <mat-card-title>Build your own excuse...</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+        <mat-form-field class="options">
+            <mat-select placeholder="What" [(ngModel)]="what">
+                <mat-option *ngFor="let option of whatOptions" [value]="option">{{option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="options">
+            <mat-select placeholder="Where" [(ngModel)]="where">
+                <mat-option *ngFor="let option of whereOptions" [value]="option">{{option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
         <div class="button">
-            <button mat-raised-button color="primary" (click)="onClick()">Get an excuse</button>
+            <button mat-raised-button color="primary" (click)="onClick()" [disabled]="!validOptions()">Get an excuse</button>
         </div>
     </mat-card-content>
 </mat-card>

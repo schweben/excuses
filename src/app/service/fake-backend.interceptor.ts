@@ -28,12 +28,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             ],
             byoe: {
                 what: [
-                    'car',
-                    'dog',
+                    'thing 1',
+                    'thing 2',
                 ],
                 where: [
-                    'vet',
-                    'garage',
+                    'place 1',
+                    'place 2',
                 ],
             },
         };

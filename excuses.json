@@ -65,6 +65,7 @@
             "goldfish"
         ],
         "where": [
+            "doctor",
             "vet",
             "garage",
             "school"

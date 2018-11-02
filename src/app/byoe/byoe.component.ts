@@ -7,22 +7,34 @@ import { ExcuseService } from '../service/excuse.service';
     templateUrl: './byoe.component.html',
     styleUrls: ['./byoe.component.css'],
 })
-export class ByoeComponent {
+export class ByoeComponent implements OnInit {
 
-    private excuse: string;
+    public whatOptions: string[];
+    public whereOptions: string[];
+
+    public what: string;
+    public where: string;
 
     constructor(private excuseService: ExcuseService) {
     }
 
-    public onClick() {
-        this.excuseService.getBuiltExcuse().subscribe((excuse) => {
-            // If the service returns the same excuse as last time then get another one
-            if (excuse === this.excuse) {
-                this.onClick();
-            } else {
-                this.excuse = excuse;
-                this.excuseService.setExcuse(excuse);
-            }
+    public ngOnInit(): void {
+        this.excuseService.getByoeWhatOptions().subscribe((options) => {
+            this.whatOptions = options;
         });
+
+        this.excuseService.getByoeWhereOptions().subscribe((options) => {
+            this.whereOptions = options;
+        });
+    }
+
+    public onClick() {
+        this.excuseService.getByoeExcuse(this.what, this.where).subscribe((excuse) => {
+            this.excuseService.setExcuse(excuse);
+        });
+    }
+
+    public validOptions(): boolean {
+        return (this.what != null && this.where != null);
     }
 }
