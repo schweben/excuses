@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { forkJoin, of } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
+import { mergeMap } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 
-import { of } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -60,11 +61,24 @@ export class ExcuseService {
         return of(`I have to take my ${what.toLowerCase()} to the ${where.toLowerCase()}`);
     }
 
+    public getRandomByoeExcuse(): Observable<string> {
+        return forkJoin(this.getByoeWhatOptions(), this.getByoeWhereOptions())
+            .pipe(
+                mergeMap((options) => {
+                    return this.getByoeExcuse(this.getRandomArrayElement(options[0]),
+                                              this.getRandomArrayElement(options[1]));
+            }));
+    }
+
     public setExcuse(excuse: string): void {
         this.excuse.next(excuse);
     }
 
     public getExcuse(): Observable<string> {
         return this.excuse.asObservable();
+    }
+
+    private getRandomArrayElement(array: string[]) {
+        return array[Math.floor(Math.random() * array.length)];
     }
 }

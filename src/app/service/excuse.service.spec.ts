@@ -96,4 +96,17 @@ describe('ExcuseService', () => {
             done();
         });
     });
+
+    it('should return a random \'build your own\' excuse', (done) => {
+        excuseService.getRandomByoeExcuse().subscribe((excuse) => {
+            expect(excuse).toBe('I have to take my goldfish to the garage');
+            done();
+        });
+
+        const excuseRequest = httpMock.match('https://www.schweben.org/excuses/excuses.json')
+            .forEach((request) => {
+                request.flush(dummyResponse);
+            });
+        httpMock.verify();
+    });
 });

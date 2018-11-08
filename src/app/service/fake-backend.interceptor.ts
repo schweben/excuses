@@ -12,28 +12,38 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         const excuses = {
             categories: [
                 {
-                    name: 'Test category 1',
+                    name: 'IT',
                     excuses: [
-                        'Excuse 1',
-                        'Excuse 2',
+                        'It works on my machine!',
+                        'It\'s not my fault',
+                        'I\'ve never seen it do that before',
+                        'Have you tried turning it off and on again?',
                     ],
                 },
                 {
-                    name: 'Test category 2',
+                    name: 'Lateness',
                     excuses: [
-                        'Excuse 3',
-                        'Excuse 4',
+                        'My mum overslept',
+                        'My mum spent too much time faffing with her hair',
+                        'I was too busy playing Lego',
+                        'My clothes were in the washing machine',
                     ],
                 },
             ],
             byoe: {
                 what: [
-                    'Thing 1',
-                    'Thing 2',
+                    'Cat',
+                    'Car',
+                    'Dog',
+                    'Wife',
+                    'Goldfish',
+                    'Hamster',
                 ],
                 where: [
-                    'Place 1',
-                    'Place 2',
+                    'Doctor',
+                    'Vet',
+                    'Garage',
+                    'Electrician',
                 ],
             },
         };

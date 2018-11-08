@@ -65,9 +65,19 @@ describe('ByoeComponent', () => {
         expect(excuseService.setExcuse).toHaveBeenCalledWith('I am taking my dog to the dentist');
     }));
 
+    it('should get a random excuse when clicked', async(() => {
+        spyOn(excuseService, 'getRandomByoeExcuse').and.returnValue(of('I am taking my dog to the dentist'));
+        spyOn(excuseService, 'setExcuse');
+
+        component.getRandom();
+
+        expect(excuseService.getRandomByoeExcuse).toHaveBeenCalledTimes(1);
+        expect(excuseService.setExcuse).toHaveBeenCalledWith('I am taking my dog to the dentist');
+    }));
+
     it('should render instructions in a mat-card-title tag', async(() => {
         const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('mat-card-title').textContent).toContain('Build your own excuse...');
+        expect(compiled.querySelector('mat-card-title').textContent).toContain('Build your own excuse or get a random one');
     }));
 
     it('should return valid options if both \'what\' and \'where\' are set', async(() => {

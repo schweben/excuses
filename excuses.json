@@ -62,12 +62,14 @@
             "Car",
             "Dog",
             "Wife",
-            "Goldfish"
+            "Goldfish",
+            "Hamster"
         ],
         "where": [
             "Doctor",
             "Vet",
-            "Garage"
+            "Garage",
+            "Electrician"
         ]
     }
 }
