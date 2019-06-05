@@ -14,7 +14,7 @@ import { ExcuseService } from './service/excuse.service';
 import { environment } from '../environments/environment';
 
 import { FakeBackendInterceptor } from './service/fake-backend.interceptor';
-import { MatGridList } from '@angular/material';
+import { MatGridList } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
