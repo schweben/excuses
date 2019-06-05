@@ -1,12 +1,11 @@
+
+import {map,  mergeMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { forkJoin, of } from 'rxjs';
-import { Observable } from 'rxjs/Observable';
-import { mergeMap } from 'rxjs/operators';
-import { Subject } from 'rxjs/Subject';
+import { forkJoin, of ,  Observable ,  Subject } from 'rxjs';
 
-import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class ExcuseService {
@@ -19,19 +18,19 @@ export class ExcuseService {
     }
 
     public getCategories(): Observable<string[]> {
-        return this.http.get<string[]>(this.URL)
-            .map((result) => {
+        return this.http.get<string[]>(this.URL).pipe(
+            map((result) => {
                 const categories: string[] = [];
                 result['categories'].forEach((category) => {
                     categories.push(category.name);
                 });
                 return categories;
-            });
+            }));
     }
 
     public getCategorisedExcuse(category: string): Observable<string> {
-        return this.http.get<string[]>(this.URL)
-            .map((result) => {
+        return this.http.get<string[]>(this.URL).pipe(
+            map((result) => {
                 let excuse = '';
                 result['categories'].forEach((cat) => {
                     if (cat.name === category) {
@@ -40,21 +39,21 @@ export class ExcuseService {
                     }
                 });
                 return excuse;
-            });
+            }));
     }
 
     public getByoeWhatOptions(): Observable<string[]> {
-        return this.http.get<string[]>(this.URL)
-            .map((result) => {
+        return this.http.get<string[]>(this.URL).pipe(
+            map((result) => {
                 return result['byoe']['what'];
-            });
+            }));
     }
 
     public getByoeWhereOptions(): Observable<string[]> {
-        return this.http.get<string[]>(this.URL)
-            .map((result) => {
+        return this.http.get<string[]>(this.URL).pipe(
+            map((result) => {
                 return result['byoe']['where'];
-            });
+            }));
     }
 
     public getByoeExcuse(what: string, where: string): Observable<string> {

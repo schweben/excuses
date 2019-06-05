@@ -1,8 +1,7 @@
+
+import {throwError as observableThrowError,  Observable ,  of } from 'rxjs';
 import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-
-import { of } from 'rxjs';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -51,7 +50,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         if (request.url.endsWith('/excuses.json') && request.method === 'GET') {
             return of(new HttpResponse({ status: 200, body: excuses }));
         } else {
-            return Observable.throw('Not found');
+            return observableThrowError('Not found');
         }
     }
 }
