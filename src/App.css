@@ -1,9 +1,6 @@
 .app {
   text-align: center;
   height: 100vh;
-  background-image: url('anchor-background-opaque.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .app h1 {
