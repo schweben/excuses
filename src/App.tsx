@@ -23,8 +23,14 @@ const App = () => {
   return (
       <div className="app">
           <h1>Need an excuse?</h1>
-          <CategorisedExcuse categories={excuseCategories}/>
-          <BuildYourOwnExcuse whatOptions={whatOptions} whereOptions={whereOptions}/>
+          <div className="container">
+            <div className="excuseType">
+              <CategorisedExcuse categories={excuseCategories}/>
+            </div>
+            <div className="excuseType">
+              <BuildYourOwnExcuse whatOptions={whatOptions} whereOptions={whereOptions}/>
+            </div>
+          </div>
       </div>
   );
 }

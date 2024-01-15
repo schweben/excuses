@@ -23,7 +23,7 @@ const CategorisedExcuse: React.FC<CategorisedExcuseProps> = ({categories}) => {
 			<div>
 				<h2>Choose a category to get an excuse</h2>
 				<label>
-					Excuse category
+					Excuse category:
 					<select onChange={(e) => setSelectedCategory(e.currentTarget.value)}>
 						<option value="invalid">Pick a category</option>
 						{categories.map(function(category, index) {

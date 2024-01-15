@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import styles from '../styles/buildyourownexcuse.module.css';
+
 type BuildYourOwnExcuseProps = {
 	whatOptions: string[];
 	whereOptions: string[];
@@ -56,7 +58,7 @@ const BuildYourOwnExcuse: React.FC<BuildYourOwnExcuseProps> = ({whatOptions, whe
 						})}
 					</select>
 				</label>
-				<label>
+				<label className={styles.random}>
 					Generate a random excuse:
 					<input type="checkbox" checked={random} onChange={(e) => setRandom(!random)}/>
 				</label>
