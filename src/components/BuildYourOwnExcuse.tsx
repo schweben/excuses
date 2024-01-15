@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 type BuildYourOwnExcuseProps = {
 	whatOptions: string[];
@@ -8,12 +8,26 @@ type BuildYourOwnExcuseProps = {
 const BuildYourOwnExcuse: React.FC<BuildYourOwnExcuseProps> = ({whatOptions, whereOptions}) => {
 
 	const [excuse, setExcuse] = useState<string>();
+	const [what, setWhat] = useState<string>('');
+	const [where, setWhere] = useState<string>('');
+	const [random, setRandom] = useState<boolean>(false);
 
-	const what = useRef<string>('');
-	const where = useRef<string>('');
+	const getExcuse = () => {
+		if (random) {
+			const randomWhat = whatOptions[Math.floor(Math.random() * (whatOptions.length - 1))];
+			const randomWhere = whereOptions[Math.floor(Math.random() * (whereOptions.length - 1))];
+			setExcuse(`I have to take my ${randomWhat.toLowerCase()} to the ${randomWhere.toLowerCase()}`);
+		} else {
+			setExcuse(`I have to take my ${what.toLowerCase()} to the ${where.toLowerCase()}`);
+		}
+	}
 
-	const getByoeExcuse = () => {
-		setExcuse(`I have to take my ${what.current.toLowerCase()} to the ${where.current.toLowerCase()}`);
+	const disableButton = (): boolean => {
+		if (random) {
+			return false;
+		}
+
+		return (what === "" || what === 'invalid') || (where === "" || where === 'invalid') ? true : false;
 	}
 
 	return (
@@ -21,18 +35,20 @@ const BuildYourOwnExcuse: React.FC<BuildYourOwnExcuseProps> = ({whatOptions, whe
 			<div>
 				<h2>Build your own excuse or get a random one</h2>
 				<label>
-					What
-					<select onChange={(e) => what.current = e.currentTarget.value}>
+					What:
+					<select onChange={(e) => setWhat(e.currentTarget.value)}>
+						<option value="invalid">Choose a 'what'</option>
 						{whatOptions.map(function (option, index) {
 							return (
-								<option key={index}>{option}</option>
+								<option key={index} value={option}>{option}</option>
 							)
 						})}
 					</select>
 				</label>
 				<label>
-					Where
-					<select onChange={(e) => where.current = e.currentTarget.value}>
+					Where:
+					<select onChange={(e) => setWhere(e.currentTarget.value)}>
+						<option value="invalid">Choose a 'where'</option>
 						{whereOptions.map(function (option, index) {
 							return (
 								<option key={index}>{option}</option>
@@ -40,9 +56,17 @@ const BuildYourOwnExcuse: React.FC<BuildYourOwnExcuseProps> = ({whatOptions, whe
 						})}
 					</select>
 				</label>
-				<button onClick={getByoeExcuse}>Get Excuse</button>
+				<label>
+					Generate a random excuse:
+					<input type="checkbox" checked={random} onChange={(e) => setRandom(!random)}/>
+				</label>
+				<button
+					onClick={getExcuse}
+					disabled={disableButton()}>
+					Get excuse
+				</button>
 			</div>
-			<div>
+			<div className="excuse">
 				{excuse}
 			</div>
 		</div>
