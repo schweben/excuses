@@ -1,73 +1,176 @@
+:root {
+  --page-bg-start: #f7fbff;
+  --page-bg-end: #eef6ff;
+  --surface: #ffffff;
+  --surface-border: #b7dbef;
+  --shadow: rgba(0, 84, 140, 0.12);
+  --text-primary: #0d3850;
+  --text-secondary: #134b69;
+  --text-muted: #27556f;
+  --input-bg: #f7fcff;
+  --input-border: #9ec8df;
+  --input-text: #123f58;
+  --focus-ring: #38a7db;
+  --button-bg: #0c8ec9;
+  --button-bg-hover: #0a7eb3;
+  --button-border: #0c7fb4;
+  --button-shadow: rgba(12, 142, 201, 0.35);
+  --button-disabled-bg: #ecf1f5;
+  --button-disabled-border: #c8d5de;
+  --button-disabled-text: #7f95a3;
+}
+
 .app {
+  min-height: 100vh;
   text-align: center;
+  padding: 2.5rem 1rem 3rem;
+  background: linear-gradient(180deg, var(--page-bg-start) 0%, var(--page-bg-end) 100%);
 }
 
 .app h1 {
-  margin: 20px;
-  padding: 10px 10px 15px 10px;
-  border: 2px solid #008CBA;
-  border-radius: 5px;
-  box-shadow: 5px 10px 18px #888888;
+  margin: 0 auto 1.75rem;
+  max-width: 920px;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  background-color: var(--surface);
+  box-shadow: 0 10px 24px var(--shadow);
+  color: var(--text-primary);
+  letter-spacing: 0.2px;
 }
 
 .container {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
 }
 
 .excuseType {
-  border: 2px solid #008CBA;
-  border-radius: 5px;
-  box-shadow: 5px 10px 18px #888888;
-  margin: 20px;
-  padding: 20px;
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  background-color: var(--surface);
+  box-shadow: 0 10px 24px var(--shadow);
+  padding: 1.5rem;
   width: 50%;
+  text-align: left;
 }
 
 .excuseType h2 {
-  margin-top: 0px;
-  margin-bottom: 20px;
+  margin: 0 0 1.1rem;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.excuseType label {
+  display: block;
+  margin-top: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .excuseType select {
-  display: inline-block;
-  padding: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 2px solid #008CBA;
+  width: 100%;
+  margin-top: 0.45rem;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  padding: 0.55rem 0.7rem;
+  font-size: 0.95rem;
+}
+
+.excuseType select:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 1px;
 }
 
 .excuseType button {
   display: block;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-
-  border: 2px solid #008CBA;
-  border-radius: 5px;
-  background-color: white;
-  color: black;
-  padding: 15px 32px;
-
-  transition-duration: 0.4s;
+  margin: 1.3rem auto 1rem;
+  border: 1px solid var(--button-border);
+  border-radius: 9px;
+  background-color: var(--button-bg);
+  color: #ffffff;
+  padding: 0.7rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .excuseType button:hover {
-  background-color: #008CBA;
-  color: white;
+  background-color: var(--button-bg-hover);
+  box-shadow: 0 6px 14px var(--button-shadow);
+  transform: translateY(-1px);
+}
+
+.excuseType button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .excuseType button:disabled {
-  border: 2px solid lightgrey;
-  background-color: white;
-}
-
-.excuseType button:disabled:hover {
-  color: black;
+  border-color: var(--button-disabled-border);
+  background-color: var(--button-disabled-bg);
+  color: var(--button-disabled-text);
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
 }
 
 .excuse {
-  font-weight: bold;
+  min-height: 2.2rem;
+  margin-top: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg-start: #0b1220;
+    --page-bg-end: #111b2d;
+    --surface: #162235;
+    --surface-border: #27425f;
+    --shadow: rgba(0, 0, 0, 0.35);
+    --text-primary: #e8f2ff;
+    --text-secondary: #d4e9ff;
+    --text-muted: #b6d5f1;
+    --input-bg: #0f1a2b;
+    --input-border: #365979;
+    --input-text: #d9ebff;
+    --focus-ring: #56b6e7;
+    --button-bg: #2a93cb;
+    --button-bg-hover: #2385b8;
+    --button-border: #3aa5da;
+    --button-shadow: rgba(42, 147, 203, 0.45);
+    --button-disabled-bg: #243548;
+    --button-disabled-border: #37506a;
+    --button-disabled-text: #95aec2;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .excuseType {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .excuseType button {
+    transition: none;
+  }
+
+  .excuseType button:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }

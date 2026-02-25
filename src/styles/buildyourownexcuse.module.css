@@ -1,4 +1,19 @@
 .random {
-	margin-top: 20px;
-	display: block;
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	font-weight: 600;
+}
+
+.random input {
+	width: 1rem;
+	height: 1rem;
+	accent-color: var(--button-bg);
+}
+
+.random input:focus-visible {
+	outline: 2px solid var(--focus-ring);
+	outline-offset: 2px;
 }
