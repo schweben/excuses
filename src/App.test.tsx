@@ -1,8 +1,20 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders app heading', async () => {
+  vi.stubGlobal(
+    'fetch',
+    vi.fn().mockResolvedValue({
+      json: async () => ({
+        categories: [],
+        byoe: { what: [], where: [] },
+      }),
+    } as Response),
+  );
+
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(await screen.findByText(/need an excuse/i)).toBeInTheDocument();
+
+  vi.unstubAllGlobals();
 });
