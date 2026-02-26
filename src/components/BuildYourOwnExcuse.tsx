@@ -33,7 +33,7 @@ const BuildYourOwnExcuse: React.FC<BuildYourOwnExcuseProps> = ({whatOptions, whe
 	}
 
 	return (
-		<div>
+		<div className="buildYourOwnExcuse">
 			<div>
 				<h2>Build your own excuse or get a random one</h2>
 				<label>

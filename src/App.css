@@ -55,7 +55,20 @@
   box-shadow: 0 10px 24px var(--shadow);
   padding: 1.5rem;
   width: 50%;
+  display: flex;
   text-align: left;
+}
+
+.excuseType > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.excuseType > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .excuseType h2 {
@@ -90,7 +103,7 @@
 
 .excuseType button {
   display: block;
-  margin: 1.3rem auto 1rem;
+  margin: auto auto 1rem;
   border: 1px solid var(--button-border);
   border-radius: 9px;
   background-color: var(--button-bg);
@@ -127,6 +140,15 @@
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.4;
+  text-align: center;
+}
+
+.excuseType > div button {
+  margin-bottom: 0.35rem;
+}
+
+.excuseType > div .excuse {
+  margin-top: 0.3rem;
 }
 
 @media (prefers-color-scheme: dark) {
