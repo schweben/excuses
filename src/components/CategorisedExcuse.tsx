@@ -10,12 +10,19 @@ const CategorisedExcuse: React.FC<CategorisedExcuseProps> = ({categories}) => {
 	const [excuse, setExcuse] = useState<string>();
 	const [selectedCategory, setSelectedCategory] = useState<string>();
 
-	const getRandomExcuse = (event: React.FormEvent<HTMLButtonElement>) => {
-		if (selectedCategory) {
-			const excuses: string[] = categories[categories.findIndex((category) => category.name === selectedCategory)].excuses;
-			const random: number = Math.floor(Math.random() * (excuses.length - 1));
-			setExcuse(excuses[random]);
+	const getRandomExcuse = () => {
+		if (!selectedCategory) {
+			return;
 		}
+
+		const category = categories.find((item) => item.name === selectedCategory);
+
+		if (!category || category.excuses.length === 0) {
+			return;
+		}
+
+		const random: number = Math.floor(Math.random() * category.excuses.length);
+		setExcuse(category.excuses[random]);
 	}
 
 	return (

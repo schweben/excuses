@@ -56,7 +56,7 @@ describe('BuildYourOwnExcuse', () => {
 
     fireEvent.click(button);
 
-    expect(screen.getByText('I have to take my car to the garage')).toBeInTheDocument();
+    expect(screen.getByText('I have to take my bike to the shop')).toBeInTheDocument();
 
     randomSpy.mockRestore();
   });

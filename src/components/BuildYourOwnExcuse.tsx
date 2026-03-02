@@ -16,8 +16,12 @@ const BuildYourOwnExcuse: React.FC<BuildYourOwnExcuseProps> = ({whatOptions, whe
 
 	const getExcuse = () => {
 		if (random) {
-			const randomWhat = whatOptions[Math.floor(Math.random() * (whatOptions.length - 1))];
-			const randomWhere = whereOptions[Math.floor(Math.random() * (whereOptions.length - 1))];
+			if (whatOptions.length === 0 || whereOptions.length === 0) {
+				return;
+			}
+
+			const randomWhat = whatOptions[Math.floor(Math.random() * whatOptions.length)];
+			const randomWhere = whereOptions[Math.floor(Math.random() * whereOptions.length)];
 			setExcuse(`I have to take my ${randomWhat.toLowerCase()} to the ${randomWhere.toLowerCase()}`);
 		} else {
 			setExcuse(`I have to take my ${what.toLowerCase()} to the ${where.toLowerCase()}`);
@@ -53,7 +57,7 @@ const BuildYourOwnExcuse: React.FC<BuildYourOwnExcuseProps> = ({whatOptions, whe
 						<option value="invalid">Choose a 'where'</option>
 						{whereOptions.map(function (option, index) {
 							return (
-								<option key={index}>{option}</option>
+								<option key={index} value={option}>{option}</option>
 							)
 						})}
 					</select>

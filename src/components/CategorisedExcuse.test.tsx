@@ -32,7 +32,7 @@ describe('CategorisedExcuse', () => {
     fireEvent.change(screen.getByRole('combobox'), { target: { value: 'Work' } });
     fireEvent.click(screen.getByRole('button', { name: /get excuse/i }));
 
-    expect(screen.getByText('Power outage')).toBeInTheDocument();
+    expect(screen.getByText('Network issue')).toBeInTheDocument();
 
     randomSpy.mockRestore();
   });
